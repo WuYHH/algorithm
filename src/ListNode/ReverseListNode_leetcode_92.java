@@ -16,6 +16,7 @@ class ListNode {
 public class ReverseListNode_leetcode_92 {
     public static void main(String[] args) {
         test01();
+        System.out.println("demo");
     }
 
     public ListNode reverseAll(ListNode head) {
