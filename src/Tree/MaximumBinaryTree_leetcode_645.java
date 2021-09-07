@@ -13,7 +13,8 @@ public class MaximumBinaryTree_leetcode_645 {
      * @return
      */
     static TreeNode constructMaximumBinaryTree(int[] nums){
-
+        if (nums.length == 0)
+            return null;
         return build(nums, 0, nums.length - 1);
     }
 
@@ -39,8 +40,16 @@ public class MaximumBinaryTree_leetcode_645 {
     }
 
     public static void test01() {
+        // valid
         int[] nums = {3, 2, 1, 6, 0, 5};
         TreeNode res = constructMaximumBinaryTree(nums);
+        print(res);
+        // invalid_1
+        int[] nums_1 = {};
+        TreeNode res_1 = constructMaximumBinaryTree(nums_1);
+        print(res);
+        int[] nums_2 = {1, 1, 1, 1, 1, 1};
+        TreeNode res_2 = constructMaximumBinaryTree(nums_2);
         print(res);
     }
     public static void print(TreeNode treeNode) {
