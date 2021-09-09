@@ -48,6 +48,21 @@ public class SerializedTree_leetcode_297 {
     }
 
     /**
+     * 递归后序 序列化,末尾不带“,”(只能是后续)
+     * 函数功能：build为以root为根结点，创建序列化字符串并返回
+     *
+     * @param root
+     * @return
+     */
+    public static String build(TreeNode root) {
+        // base case
+        if (root == null) return "#";
+        String left = build(root.left);
+        String right = build(root.right);
+        String sub = left + "," + right + "," + root.val;
+        return sub;
+    }
+    /**
      * 将层序遍历模板（不记录null值）修改为 记录null值
      * @param root
      */
@@ -182,7 +197,9 @@ public class SerializedTree_leetcode_297 {
         node2.left = node1;
         node2.right = node3;
         node1.right = node6;
-        serialized(node2);
+//        serialized(node2);
+        String res = build(node2);
+        System.out.println(res);
     }
 
     public static void main(String[] args) {
