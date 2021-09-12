@@ -24,11 +24,13 @@ public class ReverseKGroup_leetcode_25 {
             pre = curr;
             curr = next;
         }
+        // 返回反转后的头结点
         return pre;
     }
 
     /**
-     * @param a 反转[a,b)之间的链表
+     * 反转[a,b)之间的链表
+     * @param a
      * @param b
      * @return
      */
@@ -46,6 +48,12 @@ public class ReverseKGroup_leetcode_25 {
         return pre;
     }
 
+    /**
+     * 反转k个(a,b)链表
+     * @param head
+     * @param k
+     * @return
+     */
     public static ListNode reverseKGroup(ListNode head, int k) {
         ListNode p = head;
         int len = 0;
@@ -58,6 +66,7 @@ public class ReverseKGroup_leetcode_25 {
         ListNode a, b;
         a = b = head;
         for (int i = 0; i < k; i++) {
+            // base case, 出现单个结点：递归终止
             if (b == null) return head;
             b = b.next;
         }
