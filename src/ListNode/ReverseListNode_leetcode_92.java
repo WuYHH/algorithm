@@ -5,6 +5,10 @@ import java.util.List;
 /**
  * @author wuyuhan
  * @date 2021/8/29 下午10:02
+ * notes:
+ *  (1) 取前topN的base case
+ *  (2) 递归复杂度的分析
+ *  (3) 递归反转[a,b)链表和迭代反转[a,b)链表
  */
 
 class ListNode {
@@ -20,17 +24,21 @@ public class ReverseListNode_leetcode_92 {
     }
 
     public ListNode reverseAll(ListNode head) {
-        if (head.next == null)
+        ListNode nxt;
+        nxt = head.next;
+        if (nxt == null)
             return head;
-        ListNode last = reverseAll(head.next);
-        head.next.next = head;
+        ListNode last = reverseAll(nxt);
+        nxt.next = head;
         head.next = null;
         return last;
     }
 
     ListNode successor = null;
     public ListNode reverseTopN(ListNode head, int n) {
+        // base case
         if (n == 1) {
+            // 当取前一个的时候，它的后继就是下一个结点
             successor = head.next;
             return head;
         }
@@ -73,10 +81,11 @@ public class ReverseListNode_leetcode_92 {
 
         ListNode curr = pre.next;
         ListNode next;
-        // 点睛之笔
+        // 点睛之笔, pre不动
         for (int i = 0; i < right - left; i++) {
             next = curr.next;
             curr.next = next.next;
+            // pre.next 一定是[a,b)的a，a用来连接下一段
             next.next = pre.next;
             pre.next = next;
         }
