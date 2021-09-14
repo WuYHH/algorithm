@@ -4,7 +4,9 @@ package Tree;
  * @author wuyuhan
  * @date 2021/9/14 下午5:59
  * notes:
- * 1.构建辅助数组:将numTree(n)问题->numTree(low,high)问题
+ * 1.构建辅助数组:
+ *  （1）将1...n问题-》[1,n]的数组问题
+ *  （2）将numTree(n)问题->numTree(low,high)问题
  * 2.如何分析BST个数：
  *  （1）穷尽每一个root结点
  *  （2）对于当前root结点，分析其左区间[low, index-1]和[index+1, high]的树的形态的情况
