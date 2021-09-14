@@ -4,7 +4,7 @@ package Tree;
  * @author wuyuhan
  * @date 2021/9/14 上午8:02
  */
-public class IsInBST_leetcode_701 {
+public class IsInBST_leetcode_700 {
 
     /**
      * 判断以root为结点的根，target是否在这棵树内,返回结果
