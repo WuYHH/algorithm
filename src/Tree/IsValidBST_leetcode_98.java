@@ -3,10 +3,38 @@ package Tree;
 /**
  * @author wuyuhan
  * @date 2021/9/14 上午7:47
+ * notes：
+ * （1）先序遍历
+ * （2）中序遍历
  */
 public class IsValidBST_leetcode_98 {
 
+
     /**
+     * 递归版本中序遍历，验证当前结点和前一个结点，若当前结点>前一结点，则为BST
+     * @param root
+     * @return
+     */
+    static long pre = Long.MIN_VALUE;
+    static boolean isValidBST1(TreeNode root) {
+        // base case 遍历到null说明上一个结点是叶子结点，符合BST定义
+        if (root == null)
+            return true;
+
+        if (!isValidBST1(root.left))
+            return false;
+
+        // 当前root要做的？什么时候做？
+        if (root.val <= pre)
+            return false;
+        pre = root.val;
+
+        return isValidBST1(root.right);
+
+    }
+
+    /**
+     * 先序遍历解决
      * 增加参数列表，携带额外信息，将约束传递到左右子树，而不是左右孩子
      * @param root
      * @return
