@@ -29,6 +29,7 @@ public class MaxBSTNum_leetcode_1373 {
         // 叶子结点也为BST
         if (root == null)
             // Math.min() 和Math.max()必须分会root.val,最小值是root，最大值也是root
+            // maxSum = 0
             return new int[] {1, Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
 
         int[] left = traverse(root.left);
