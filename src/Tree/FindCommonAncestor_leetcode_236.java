@@ -19,18 +19,23 @@ public class FindCommonAncestor_leetcode_236 {
         if (root == null) return null;
         if (root == p || root == q) return root;
 
+
+        // 到左子树找p和q的祖先节点，不一定能找到！！！这个很重要
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
         // 后序
         // case 1
+       // p和q在root的异侧
         if (left != null && right != null) {
             return root;
         }
         // case 2
+       // p 和 q既不在左侧，也不在右侧
         if (left == null && right == null) {
             return null;
         }
         // case 3
+       // p 和 q 同在左侧，或者 p和q同在右侧，则返回另一侧的root
         return left == null ? right : left;
 
     }
