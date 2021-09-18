@@ -21,6 +21,7 @@ public class CountNodes_leetcode_222 {
 
         TreeNode l = root, r = root;
         int left = 0, right = 0;
+        // 需要logN的复杂度
         while(l != null) {
             left ++;
             l = l.left;
@@ -49,7 +50,7 @@ public class CountNodes_leetcode_222 {
 
         // null node
         TreeNode nullNode = new TreeNode(-1);
-        
+
         node1.left = node2;
         node1.right = node3;
         node2.left = node4;
